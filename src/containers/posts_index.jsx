@@ -5,7 +5,8 @@ import { bindActionCreators } from 'redux';
 import { fetchPosts } from '../actions/index';
 
 class PostIndex extends Component {
-  // Be automatically called by react immediately after this component has shown up inside the DOM, for one time
+  // Be automatically called by react immediately after this component has shown
+  // up inside the DOM, for one time
   componentDidMount() {
     this.props.fetchPosts();
   }
