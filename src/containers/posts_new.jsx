@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 // the function "reduxForm" is identical to "connect" helper in react-redux library
 
@@ -59,6 +60,7 @@ class PostsNew extends Component {
           component={this.renderField}
         />
         <button type='submit' className='btn btn-primary'>Submit</button>
+        <Link className='btn btn-success' to='/'>Cancel</Link>
       </form>
     );
   }
