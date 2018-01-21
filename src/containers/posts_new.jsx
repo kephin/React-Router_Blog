@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 // the field component only knows how to wire up all the event handlers, action creators, etc.
 // but it doesn't know how to produce JSX on the screen to our users
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+
+import { createPost } from '../actions';
 
 class PostsNew extends Component {
   // need to pass the field argument, for 2 reasons:
@@ -35,8 +38,9 @@ class PostsNew extends Component {
   }
 
   onSubmit(values) {
-    // this === component
-    console.log(values);
+    this.props.createPost(values, () => {
+      this.props.history.push('/');
+    });
   }
 
   render() {
@@ -86,4 +90,4 @@ export default reduxForm({
   validate,
   // to specify the unique name for this particular form
   form: 'PostsNewForm',
-})(PostsNew);
+})(connect(null, { createPost })(PostsNew));
