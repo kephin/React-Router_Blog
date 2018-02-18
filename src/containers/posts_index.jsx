@@ -16,7 +16,9 @@ class PostIndex extends Component {
     return convertObjectToArray(this.props.posts)
       .map(post => (
         <li className='list-group-item' key={post.id}>
-          {post.title}
+          <Link to={`/posts/${post.id}`}>
+            {post.title}
+          </Link>
         </li>
       ));
   }
